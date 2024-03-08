@@ -1,2 +1,1 @@
-# infinity_inventory_vvss
-VVSS
+# Infinity Inventory VVSS
