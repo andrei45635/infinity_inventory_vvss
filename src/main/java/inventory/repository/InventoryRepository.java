@@ -45,7 +45,7 @@ public class InventoryRepository {
 		if (line==null|| line.equals("")) return null;
 		StringTokenizer st=new StringTokenizer(line, ",");
 		String type=st.nextToken();
-		if (type.equals("I")) {
+		if ("I".equals(type)) {
 			int id= Integer.parseInt(st.nextToken());
 			inventory.setAutoPartId(id);
 			String name= st.nextToken();
@@ -76,20 +76,19 @@ public class InventoryRepository {
 
 		ObservableList<Product> listP = FXCollections.observableArrayList();
 		BufferedReader br = null;
-		try {
-			br = new BufferedReader(new FileReader(file));
-			String line = null;
-			while((line=br.readLine())!=null){
-				Product product=getProductFromString(line);
-				if (product!=null)
+		try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+			String line;
+			while ((line = br.readLine()) != null) {
+				Product product = getProductFromString(line);
+				if (product != null)
 					listP.add(product);
 			}
-			br.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+
 		inventory.setProducts(listP);
 	}
 

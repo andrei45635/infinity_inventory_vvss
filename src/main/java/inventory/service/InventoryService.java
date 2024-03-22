@@ -7,12 +7,16 @@ import javafx.collections.ObservableList;
 public class InventoryService {
 
     private InventoryRepository repo;
+    private Validator<Part> partValidator;
+    private Validator<Product> productValidator;
+
     public InventoryService(InventoryRepository repo){
         this.repo =repo;
     }
 
     public void addInhousePart(String name, double price, int inStock, int min, int  max, int partDynamicValue){
         InhousePart inhousePart = new InhousePart(repo.getAutoPartId(), name, price, inStock, min, max, partDynamicValue);
+        partValidator.validate(inhousePart);
         repo.addPart(inhousePart);
     }
     public void addOutsourcePart(String name, double price, int inStock, int min, int  max, String partDynamicValue){
@@ -22,6 +26,7 @@ public class InventoryService {
 
     public void addProduct(String name, double price, int inStock, int min, int  max, ObservableList<Part> addParts){
         Product product = new Product(repo.getAutoProductId(), name, price, inStock, min, max, addParts);
+        productValidator.validate(product);
         repo.addProduct(product);
     }
 
