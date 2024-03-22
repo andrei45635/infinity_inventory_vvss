@@ -12,6 +12,14 @@ public class InventoryRepository {
 
 	private static String filename = "data/items.txt";
 	private Inventory inventory;
+	private static InventoryRepository repositoryInstance;
+	private InventoryRepository() {}
+	public static InventoryRepository getInstance() {
+		if (repositoryInstance == null) {
+			repositoryInstance = new InventoryRepository();
+		}
+		return repositoryInstance;
+	}
 	public InventoryRepository(){
 		this.inventory=new Inventory();
 		readParts();
@@ -142,12 +150,18 @@ public class InventoryRepository {
 				String line=pr.toString()+",";
 				ObservableList<Part> list= pr.getAssociatedParts();
 				int index=0;
-				while(index<list.size()-1){
-					line=line+list.get(index).getPartId()+":";
-					index++;
+				StringBuilder builder = new StringBuilder();
+				for (int i = 0; i < list.size(); i++) {
+					builder.append(list.get(i).getPartId());
+					if (i < list.size() - 1) {
+						builder.append(":");
+					}
 				}
-				if (index==list.size()-1)
-					line=line+list.get(index).getPartId();
+				if (index==list.size()-1) {
+					line+=builder.toString();
+				} else {
+					line+=builder.toString();
+				}
 				bw.write(line);
 				bw.newLine();
 			}
