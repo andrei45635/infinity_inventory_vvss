@@ -10,10 +10,10 @@ import java.util.StringTokenizer;
 
 public class InventoryRepository {
 
-	private static String filename = "data/items.txt";
+	private static String filename = "C:\\Users\\GIGABYTE\\OneDrive\\Desktop\\Facultate\\Semestrul 6\\VVSS\\infinity_inventory_vvss\\data\\items.txt";
 	private Inventory inventory;
 	private static InventoryRepository repositoryInstance;
-	private InventoryRepository() {}
+
 	public static InventoryRepository getInstance() {
 		if (repositoryInstance == null) {
 			repositoryInstance = new InventoryRepository();
@@ -45,7 +45,7 @@ public class InventoryRepository {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		inventory.setAllParts(listP);
+		inventory.setParts(listP);
 	}
 
 	private Part getPartFromString(String line){
@@ -83,7 +83,6 @@ public class InventoryRepository {
 		File file = new File(filename);
 
 		ObservableList<Product> listP = FXCollections.observableArrayList();
-		BufferedReader br = null;
 		try (BufferedReader br = new BufferedReader(new FileReader(file))) {
 			String line;
 			while ((line = br.readLine()) != null) {
@@ -135,7 +134,7 @@ public class InventoryRepository {
 		File file = new File(filename);
 
 		BufferedWriter bw = null;
-		ObservableList<Part> parts=inventory.getAllParts();
+		ObservableList<Part> parts=inventory.getParts();
 		ObservableList<Product> products=inventory.getProducts();
 
 		try {
@@ -190,7 +189,7 @@ public class InventoryRepository {
 	}
 
 	public ObservableList<Part> getAllParts(){
-		return inventory.getAllParts();
+		return inventory.getParts();
 	}
 
 	public ObservableList<Product> getAllProducts(){

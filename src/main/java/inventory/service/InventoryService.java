@@ -2,16 +2,21 @@ package inventory.service;
 
 import inventory.model.*;
 import inventory.repository.InventoryRepository;
+import inventory.validator.PartValidator;
+import inventory.validator.ProductValidator;
+import inventory.validator.ValidatorInterface;
 import javafx.collections.ObservableList;
 
 public class InventoryService {
 
     private InventoryRepository repo;
-    private Validator<Part> partValidator;
-    private Validator<Product> productValidator;
+    private ValidatorInterface<Part> partValidator;
+    private ValidatorInterface<Product> productValidator;
 
     public InventoryService(InventoryRepository repo){
         this.repo =repo;
+        this.partValidator = new PartValidator();
+        this.productValidator = new ProductValidator();
     }
 
     public void addInhousePart(String name, double price, int inStock, int min, int  max, int partDynamicValue){

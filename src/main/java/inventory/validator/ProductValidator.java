@@ -1,8 +1,9 @@
 package inventory.validator;
 
 import inventory.model.Part;
+import inventory.model.Product;
 
-public class ProductValidator implements Validator<Product> {
+public class ProductValidator implements ValidatorInterface<Product> {
     @Override
     public void validate(Product product) throws ValidatorException {
         String errors = "";
@@ -27,7 +28,7 @@ public class ProductValidator implements Validator<Product> {
         if (product.getInStock() < product.getMin() || product.getInStock() > product.getMax()) {
             errors += "In stock must be between min and max!\n";
         }
-        if (product.getParts().size() == 0) {
+        if (product.getAssociatedParts().size() == 0) {
             errors += "Product must have at least one part!\n";
         }
         if (errors.length() > 0) {

@@ -2,7 +2,7 @@ package inventory.validator;
 
 import inventory.model.Part;
 
-public class PartValidator implements Validator<Part> {
+public class PartValidator implements ValidatorInterface<Part> {
     @Override
     public void validate(Part part) throws ValidatorException {
         String errors = "";

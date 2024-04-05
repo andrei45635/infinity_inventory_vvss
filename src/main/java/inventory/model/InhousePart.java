@@ -1,7 +1,7 @@
 package inventory.model;
 
 
-public class InhousePart extends Part {
+public class InhousePart extends inventory.model.Part {
 
     // Declare fields
     private int machineId;
