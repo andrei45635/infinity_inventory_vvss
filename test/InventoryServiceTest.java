@@ -159,7 +159,7 @@ class InventoryServiceTest {
         int inStock = 1;
         int min = 1;
         int max = -10;
-        int partDynamicValue = 0;
+        int partDynamicValue = 1;
 
         // Act and Assert
         Exception exception = assertThrows(Exception.class, () -> inventoryService.addInhousePart(name, price, inStock, min, max, partDynamicValue));
