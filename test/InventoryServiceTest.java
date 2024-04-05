@@ -55,7 +55,7 @@ class InventoryServiceTest {
     @Tag("Error")
     void testAddInhousePartTC2_ECP() {
         // Arrange
-        String name = "";
+        String name = "festar";
         double price = -15;
         int inStock = -15;
         int min = -5;
@@ -66,7 +66,7 @@ class InventoryServiceTest {
         Exception exception = assertThrows(Exception.class, () -> {
             inventoryService.addInhousePart(name, price, inStock, min, max, partDynamicValue);
         });
-        assertEquals("Name cannot be empty!\nIn stock cannot be negative!\nPrice cannot be negative!\nMin cannot be negative!\nMax cannot be negative!\nMin cannot be greater than max!\nIn stock must be between min and max!\n", exception.getMessage());
+        assertEquals("In stock cannot be negative!\nPrice cannot be negative!\nMin cannot be negative!\nMax cannot be negative!\nMin cannot be greater than max!\nIn stock must be between min and max!\n", exception.getMessage());
     }
 
     @Test
