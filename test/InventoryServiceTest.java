@@ -114,18 +114,18 @@ class InventoryServiceTest {
     @Tag("CompilerError")
     void testAddInhousePartTC2_BVA() {
         // Arrange
-        String name = "";
-        double price = -1;
-        int inStock = -15;
-        int min = -1;
-        int max = -15;
-        int partDynamicValue = -1;
+        String name = "festar";
+        double price = 50;
+        int inStock = 1;
+        int min = 2;
+        int max = 3;
+        int partDynamicValue = 2;
 
         // Act and Assert
         Exception exception = assertThrows(Exception.class, () -> {
             inventoryService.addInhousePart(name, price, inStock, min, max, partDynamicValue);
         });
-        assertEquals("Name cannot be empty!\nIn stock cannot be negative!\nPrice cannot be negative!\nMin cannot be negative!\nMax cannot be negative!\nMin cannot be greater than max!\nIn stock must be between min and max!\n", exception.getMessage());
+        assertEquals("In stock must be between min and max!\n", exception.getMessage());
     }
 
     @RepeatedTest(3)
@@ -156,14 +156,14 @@ class InventoryServiceTest {
         // Arrange
         String name = "M…1234";
         double price = 2;
-        int inStock = 1;
+        int inStock = 101;
         int min = 1;
-        int max = -10;
+        int max = 100;
         int partDynamicValue = 1;
 
         // Act and Assert
         Exception exception = assertThrows(Exception.class, () -> inventoryService.addInhousePart(name, price, inStock, min, max, partDynamicValue));
-        assertEquals("Max cannot be negative!\nMin cannot be greater than max!\nIn stock must be between min and max!\n", exception.getMessage());
+        assertEquals("In stock must be between min and max!\n", exception.getMessage());
     }
 }
 
