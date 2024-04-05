@@ -47,7 +47,6 @@ class InventoryServiceTest {
         assertDoesNotThrow(() -> inventoryService.addInhousePart(name, price, inStock, min, max, partDynamicValue));
 
         // Assert
-        //verify(inventoryRepository, times(1)).addPart(any());
         assertEquals(inventoryRepository.getAllParts().size(), size + 1);
     }
 
