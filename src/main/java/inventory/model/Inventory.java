@@ -53,11 +53,9 @@ public class Inventory {
                     break;
                 }
             }
-            if ((p.getProductId() + "").equals(searchItem)) {
+            if (String.valueOf(p.getProductId()).equals(searchItem)) {
                 isIdMatch = true;
-                if (!isFound) {
-                    foundProduct = p;
-                }
+                foundProduct = p;
             }
         }
 
