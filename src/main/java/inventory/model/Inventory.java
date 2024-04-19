@@ -40,32 +40,36 @@ public class Inventory {
      * @param searchItem
      * @return
      */
-    public Product lookupProduct(String searchItem) {
-        boolean isFound = false;
+    public Product lookupProduct(String searchItem) throws Exception {
+        boolean isFound = false; // 1
         boolean isIdMatch = false;
         Product foundProduct = null;
 
-        for (Product p : products) {
-            if (p.getName().contains(searchItem)) {
-                if (p.getInStock() > 0) {
+        for (Product p : products) { // 2
+            if (p.getName().contains(searchItem)) { // 3
+                if (p.getInStock() > 0) { // 4
                     foundProduct = p;
-                    isFound = true;
+                    isFound = true; // 5
                     break;
                 }
             }
-            if (String.valueOf(p.getProductId()).equals(searchItem)) {
-                isIdMatch = true;
+            if (String.valueOf(p.getProductId()).equals(searchItem)) { // 6
+                isIdMatch = true; // 7
+                isFound = true;
                 foundProduct = p;
             }
         }
 
-        if (!isFound && !isIdMatch) {
-            return new Product(0, null, 0.0, 0, 0, 0, null);
-        } else if (isFound && foundProduct.getInStock() <= 0) {
-            return new Product(foundProduct.getProductId(), foundProduct.getName(), 0.0, 0, 0, 0, foundProduct.getAssociatedParts());
+        if (!isFound && !isIdMatch) { // 8
+            throw new Exception("Couldn't find the product!");
+            //return new Product(0, null, 0.0, 0, 0, 0, null); //9
+        } else if (isFound && foundProduct.getInStock() <= 0) { // 10
+            /*11*/return new Product(foundProduct.getProductId(), foundProduct.getName(), 0.0, 0, 0, 0, foundProduct.getAssociatedParts());
         }
 
-        return foundProduct;
+        return foundProduct; // 12
+
+        // 13
     }
 
 

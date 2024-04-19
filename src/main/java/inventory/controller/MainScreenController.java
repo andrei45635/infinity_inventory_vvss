@@ -252,7 +252,7 @@ public class MainScreenController implements Initializable,Controller {
      * @param event 
      */
     @FXML
-    void handleProductsSearchBtn(ActionEvent event) {
+    void handleProductsSearchBtn(ActionEvent event) throws Exception {
         String x = productsSearchTxt.getText();
         productsTableView.getSelectionModel().select(service.lookupProduct(x));
     }

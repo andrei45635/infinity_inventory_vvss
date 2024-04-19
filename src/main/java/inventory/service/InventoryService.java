@@ -47,7 +47,7 @@ public class InventoryService {
         return repo.lookupPart(search);
     }
 
-    public Product lookupProduct(String search) {
+    public Product lookupProduct(String search) throws Exception {
         return repo.lookupProduct(search);
     }
 

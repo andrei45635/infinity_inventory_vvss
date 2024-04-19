@@ -200,7 +200,7 @@ public class InventoryRepository {
 		return inventory.lookupPart(search);
 	}
 
-	public Product lookupProduct (String search){
+	public Product lookupProduct (String search) throws Exception {
 		return inventory.lookupProduct(search);
 	}
 
