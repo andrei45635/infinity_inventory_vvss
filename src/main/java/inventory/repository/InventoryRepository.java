@@ -10,7 +10,7 @@ import java.util.StringTokenizer;
 
 public class InventoryRepository {
 
-	private static String filename = "C:\\Users\\GIGABYTE\\OneDrive\\Desktop\\Facultate\\Semestrul 6\\VVSS\\infinity_inventory_vvss\\data\\items.txt";
+	private String filename = "C:\\Users\\GIGABYTE\\OneDrive\\Desktop\\Facultate\\Semestrul 6\\VVSS\\infinity_inventory_vvss\\data\\items.txt";
 	private Inventory inventory;
 	private static InventoryRepository repositoryInstance;
 
@@ -21,6 +21,13 @@ public class InventoryRepository {
 		return repositoryInstance;
 	}
 	public InventoryRepository(){
+		this.inventory=new Inventory();
+		readParts();
+		readProducts();
+	}
+
+	public InventoryRepository(String filename){
+		this.filename = filename;
 		this.inventory=new Inventory();
 		readParts();
 		readProducts();
