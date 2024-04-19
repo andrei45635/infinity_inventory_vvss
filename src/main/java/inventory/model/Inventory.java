@@ -34,25 +34,43 @@ public class Inventory {
     public void removeProduct(Product product) {
         products.remove(product);
     }
-    
+
     /**
      * Accepts search parameter and if an ID or name matches input, that product is returned
      * @param searchItem
-     * @return 
+     * @return
      */
     public Product lookupProduct(String searchItem) {
         boolean isFound = false;
-        for(Product p: products) {
-            if(p.getName().contains(searchItem) || (p.getProductId()+"").equals(searchItem)) return p;
-            isFound = true;
+        boolean isIdMatch = false;
+        Product foundProduct = null;
+
+        for (Product p : products) {
+            if (p.getName().contains(searchItem)) {
+                if (p.getInStock() > 0) {
+                    foundProduct = p;
+                    isFound = true;
+                    break;
+                }
+            }
+            if ((p.getProductId() + "").equals(searchItem)) {
+                isIdMatch = true;
+                if (!isFound) {
+                    foundProduct = p;
+                }
+            }
         }
-        if(isFound == false) {
-            Product product = new Product(0, null, 0.0, 0, 0, 0, null);
-            return product;
+
+        if (!isFound && !isIdMatch) {
+            return new Product(0, null, 0.0, 0, 0, 0, null);
+        } else if (isFound && foundProduct.getInStock() <= 0) {
+            return new Product(foundProduct.getProductId(), foundProduct.getName(), 0.0, 0, 0, 0, foundProduct.getAssociatedParts());
         }
-        return null;
+
+        return foundProduct;
     }
-    
+
+
     /**
      * Update product at given index
      * @param index
