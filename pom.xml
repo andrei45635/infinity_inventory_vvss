@@ -128,9 +128,9 @@
             <include>**/*Test.java</include>
           </includes>
           <argLine>--add-opens inventory/whiteblack=ALL-UNNAMED</argLine>
-          <argLine>--add-opens inventory/integration/step1=ALL-UNNAMED</argLine>
-          <argLine>--add-opens inventory/integration/step2=ALL-UNNAMED</argLine>
-          <argLine>--add-opens inventory/integration/step3=ALL-UNNAMED</argLine>
+          <argLine>--add-opens inventory/integration=ALL-UNNAMED</argLine>
+<!--          <argLine>&#45;&#45;add-opens inventory/integration/step2=ALL-UNNAMED</argLine>-->
+<!--          <argLine>&#45;&#45;add-opens inventory/integration/step3=ALL-UNNAMED</argLine>-->
         </configuration>
       </plugin>
       <plugin>
