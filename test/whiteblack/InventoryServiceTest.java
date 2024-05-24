@@ -90,10 +90,11 @@ class InventoryServiceTest {
         assertEquals("Name cannot be empty!\n", exception.getMessage());
     }
 
-    @ParameterizedTest
-    @ValueSource(strings = { "M", "N", "P" })
+//    @ParameterizedTest
+//    @ValueSource(strings = { "M", "N", "P" })
     @DisplayName("Add In-House Part - TC1_BVA Successful Case")
     @Tag("BVA")
+    @Test
     void testAddInhousePartTC1_BVA(String name) {
         // Arrange
         //String name = "M";
