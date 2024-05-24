@@ -1,6 +1,0 @@
-# Created at 2024-05-24T19:06:30.861
-Corrupted channel by directly writing to native stream in forked JVM 4. Stream 'Error occurred during initialization of boot layer'.
-
-# Created at 2024-05-24T19:06:30.891
-Corrupted channel by directly writing to native stream in forked JVM 4. Stream 'java.lang.RuntimeException: Unable to parse --add-opens <module>/<package>: inventory/integration/step3'.
-
