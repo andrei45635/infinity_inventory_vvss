@@ -1,3 +1,5 @@
+package java.service;
+
 import inventory.repository.InventoryRepository;
 import inventory.service.InventoryService;
 import inventory.validator.PartValidator;
