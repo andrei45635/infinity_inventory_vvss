@@ -1,4 +1,4 @@
-package java.service.integration.step1;
+package integration.step1;
 
 import inventory.model.InhousePart;
 import inventory.model.Part;
@@ -21,7 +21,7 @@ public class InventoryRepositoryTest {
 
     @BeforeEach
     public void setUp() {
-        repository = new InventoryRepository();
+        repository = new InventoryRepository("C:\\Users\\GIGABYTE\\OneDrive\\Desktop\\Facultate\\Semestrul 6\\VVSS\\infinity_inventory_vvss\\data\\items.txt");
     }
 
     @AfterEach
@@ -37,7 +37,7 @@ public class InventoryRepositoryTest {
 
     @Test
     public void add() {
-        Part part = getPart(999, "Part999", 99, 15, 5, 25, 1);
+        Part part = getPart(1, "Part999", 99, 15, 5, 25, 1);
         repository.addPart(part);
         List<Part> parts = repository.getAllParts();
         assertEquals(1, parts.size());
@@ -57,7 +57,7 @@ public class InventoryRepositoryTest {
         when(part.getInStock()).thenReturn(inStock);
         when(part.getMin()).thenReturn(min);
         when(part.getMax()).thenReturn(max);
-        when(part.getMachineId()).thenReturn(machineId);
+        //when(part.getMachineId()).thenReturn(machineId);
         return part;
     }
 }

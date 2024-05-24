@@ -1,5 +1,3 @@
-package java.service;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 import inventory.model.Product;

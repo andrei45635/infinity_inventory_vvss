@@ -1,4 +1,4 @@
-package java.service.integration.step1;
+package integration.step1;
 
 import inventory.model.InhousePart;
 import org.junit.jupiter.api.BeforeEach;
@@ -11,7 +11,7 @@ public class PartTest {
 
     @BeforeEach
     void setUp() {
-        part = new InhousePart(999, "Part999", 99, 15, 5, 25, 1);
+        part = new InhousePart(1, "Part999", 99, 15, 5, 25, 1);
     }
 
     @Test
