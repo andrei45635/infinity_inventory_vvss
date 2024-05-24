@@ -4,6 +4,8 @@ package inventory.model;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.util.List;
+
 public class Inventory {
 
     // Declare fields
@@ -147,6 +149,10 @@ public class Inventory {
      * @return
      */
     public ObservableList<Part> getParts() {
+        return parts;
+    }
+
+    public List<Part> getPartsList() {
         return parts;
     }
 

@@ -6,6 +6,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.io.*;
+import java.util.List;
 import java.util.StringTokenizer;
 
 public class InventoryRepository {
@@ -196,6 +197,10 @@ public class InventoryRepository {
 	}
 
 	public ObservableList<Part> getAllParts(){
+		return inventory.getParts();
+	}
+
+	public List<Part> getAllPartsList() {
 		return inventory.getParts();
 	}
 
