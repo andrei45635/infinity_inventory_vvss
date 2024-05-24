@@ -121,7 +121,7 @@
 
 
   <build>
-    <testSourceDirectory>src/test/java</testSourceDirectory>
+    <testSourceDirectory>test</testSourceDirectory>
     <plugins>
       <plugin>
         <artifactId>maven-clean-plugin</artifactId>
@@ -142,7 +142,7 @@
       </plugin>
       <plugin>
         <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.22.1</version>
+        <version>3.0.0-M5</version>
         <configuration>
           <includes>
             <include>**/*Test.java</include>
