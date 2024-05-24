@@ -31,7 +31,7 @@ public class InventoryRepository {
 		this.filename = filename;
 		this.inventory=new Inventory();
 		readParts();
-		//readProducts();
+		readProducts();
 	}
 
 	public void readParts(){
