@@ -25,7 +25,8 @@ class ProductLookupTest {
         String fileName = "example.txt";
 
         // Define the directory where you want to create the file
-        String directoryPath = "C:\\VVSS\\infinity_inventory_vvss\\src\\main\\resources"; // Replace "YourUserName" with your actual user name
+        //String directoryPath = "C:\\VVSS\\infinity_inventory_vvss\\src\\main\\resources";
+        String directoryPath = "src/main/resources";
 
         // Create a File object with the specified directory and file name
         File file = new File(directoryPath, fileName);
