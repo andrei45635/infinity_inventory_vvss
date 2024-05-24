@@ -1,9 +1,0 @@
-# Created at 2024-05-24T19:02:53.146
-Corrupted STDOUT by directly writing to native stream in forked JVM 7. Stream 'Error occurred during initialization of boot layer'.
-
-# Created at 2024-05-24T19:02:53.147
-Corrupted STDOUT by directly writing to native stream in forked JVM 7. Stream 'java.lang.RuntimeException: Unable to parse --add-opens <module>/<package>:'.
-
-# Created at 2024-05-24T19:02:53.147
-Corrupted STDOUT by directly writing to native stream in forked JVM 7. Stream 'inventory/integration/step3'.
-
