@@ -21,7 +21,8 @@ public class InventoryServiceTest {
 
     @BeforeEach
     void setUp() {
-        repository = new InventoryRepository("C:\\Users\\GIGABYTE\\OneDrive\\Desktop\\Facultate\\Semestrul 6\\VVSS\\infinity_inventory_vvss\\data\\items.txt");
+        //repository = new InventoryRepository("C:\\Users\\GIGABYTE\\OneDrive\\Desktop\\Facultate\\Semestrul 6\\VVSS\\infinity_inventory_vvss\\data\\items.txt");
+        repository = new InventoryRepository();
         service = new InventoryService(repository);
     }
 
