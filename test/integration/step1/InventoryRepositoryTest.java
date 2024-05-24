@@ -57,7 +57,6 @@ public class InventoryRepositoryTest {
         when(part.getInStock()).thenReturn(inStock);
         when(part.getMin()).thenReturn(min);
         when(part.getMax()).thenReturn(max);
-        //when(part.getMachineId()).thenReturn(machineId);
         return part;
     }
 }

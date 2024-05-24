@@ -43,6 +43,5 @@ public class InventoryServiceTest {
         service.addInhousePart(part.getName(), part.getPrice(), part.getInStock(), part.getMin(), part.getMax(), part.getMachineId());
         List<Part> result = service.getAllParts();
         assertEquals(1, result.size());
-        //assertEquals(part, result.get(0));
     }
 }

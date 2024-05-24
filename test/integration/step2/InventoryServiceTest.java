@@ -42,7 +42,6 @@ public class InventoryServiceTest {
     @Test
     void addPart() {
         InhousePart part = mock(InhousePart.class);
-        //when(part.getPartId()).thenReturn(999);
         when(part.getName()).thenReturn("Part999");
         when(part.getPrice()).thenReturn(99.0);
         when(part.getInStock()).thenReturn(15);
@@ -54,6 +53,5 @@ public class InventoryServiceTest {
 
         List<Part> result = service.getAllParts();
         assertEquals(1, result.size());
-        //assertEquals(part, result.get(0));
     }
 }
